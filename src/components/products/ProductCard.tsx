@@ -1,20 +1,23 @@
-import { useState } from 'react'
-import type { Product } from '../../types'
-import { Card } from '../ui/Card'
-import { Button } from '../ui/Button'
-import { getProductImageUrl } from '../../utils/products'
+import { useState } from "react";
+import type { Product } from "../../types";
+import { Card } from "../ui/Card";
+import { Button } from "../ui/Button";
+import { getProductImageUrl } from "../../utils/products";
 
 interface ProductCardProps {
-  product: Product
+  product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const [isOpen, setIsOpen] = useState(false)
-  const imageUrl = getProductImageUrl(product.image)
+  const [isOpen, setIsOpen] = useState(false);
+  const imageUrl = getProductImageUrl(product.image);
 
   return (
     <>
-      <Card hover className="h-full flex flex-col justify-between overflow-hidden border border-base-300 bg-base-100 shadow-md transition-all duration-300 hover:shadow-xl hover:border-primary/30 group">
+      <Card
+        hover
+        className="h-full flex flex-col justify-between overflow-hidden border border-base-300 bg-base-100 shadow-md transition-all duration-300 hover:shadow-xl hover:border-primary/30 group"
+      >
         {/* Product Image Wrapper */}
         <figure className="relative bg-base-200 flex h-48 items-center justify-center p-6 overflow-hidden select-none">
           {product.badge && (
@@ -31,7 +34,8 @@ export function ProductCard({ product }: ProductCardProps) {
             loading="lazy"
             className="h-32 w-32 object-contain transition-transform duration-500 ease-out group-hover:scale-110"
             onError={(e) => {
-              (e.target as HTMLImageElement).src = 'https://placehold.co/500x500?text=Image+Not+Found'
+              (e.target as HTMLImageElement).src =
+                "https://placehold.co/500x500?text=Image+Not+Found";
             }}
           />
           {/* Quick View Overlay */}
@@ -74,7 +78,11 @@ export function ProductCard({ product }: ProductCardProps) {
               >
                 View Details →
               </button>
-              <Button to="/contact" variant="primary" className="btn-xs rounded py-1 px-3">
+              <Button
+                to="/contact"
+                variant="primary"
+                className="btn-xs rounded py-1 px-3"
+              >
                 Get Quote
               </Button>
             </div>
@@ -115,7 +123,8 @@ export function ProductCard({ product }: ProductCardProps) {
                   alt={product.name}
                   className="max-h-60 max-w-full object-contain"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'https://placehold.co/500x500?text=Image+Not+Found'
+                    (e.target as HTMLImageElement).src =
+                      "https://placehold.co/500x500?text=Image+Not+Found";
                   }}
                 />
               </div>
@@ -142,16 +151,19 @@ export function ProductCard({ product }: ProductCardProps) {
                         <strong>Brand:</strong> {product.brand}
                       </li>
                       <li>
-                        <strong>Product Class:</strong> Industrial Wholesaler Grade
+                        <strong>Product Class:</strong> Industrial Wholesaler
+                        Grade
                       </li>
                       <li>
                         <strong>Certification:</strong> ISO 9001:2000 Certified
                       </li>
                       <li>
-                        <strong>Origin:</strong> Sitapura Industrial Area, Jaipur
+                        <strong>Origin:</strong> Sitapura Industrial Area,
+                        Jaipur
                       </li>
                       <li>
-                        <strong>Status:</strong> Ready Stock / Wholesale Distribution
+                        <strong>Status:</strong> Ready Stock / Wholesale
+                        Distribution
                       </li>
                     </ul>
                   </div>
@@ -169,7 +181,6 @@ export function ProductCard({ product }: ProductCardProps) {
                     to="/contact"
                     variant="primary"
                     className="btn-sm rounded-lg"
-                    onClick={() => setIsOpen(false)}
                   >
                     Enquire Now
                   </Button>
@@ -185,5 +196,5 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
       )}
     </>
-  )
+  );
 }
