@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: corporate --default, business --prefersdark;
+  themes:
+    corporate --default,
+    business --prefersdark;
 }
 
 @theme {
@@ -51,16 +53,73 @@
 html {
   scroll-behavior: smooth;
   color-scheme: light;
+  -webkit-text-size-adjust: 100%;
 }
 
-html[data-theme='business'] {
+html[data-theme="business"] {
   color-scheme: dark;
 }
 
 body {
   min-height: 100vh;
-  font-feature-settings: 'kern' 1;
+  font-feature-settings: "kern" 1;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile-friendly touch targets (minimum 48px) */
+button,
+a.btn,
+[role="button"] {
+  min-height: 48px;
+  min-width: 48px;
+}
+
+/* Prevent zooming on input focus on iOS */
+@media (max-width: 768px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+/* Responsive font sizes */
+@media (max-width: 640px) {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+}
+
+/* Improve spacing on mobile */
+@media (max-width: 768px) {
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Reduce excessive padding on mobile */
+  .px-4 {
+    @apply px-3;
+  }
+
+  .py-12 {
+    @apply py-8;
+  }
+
+  .py-16 {
+    @apply py-10;
+  }
+
+  .gap-10 {
+    @apply gap-6;
+  }
 }
 
 .certificate-border {
@@ -70,4 +129,26 @@ body {
     var(--color-base-200) 50%,
     var(--color-base-100) 100%
   );
+}
+
+/* Touch-friendly link targets */
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Better mobile form styling */
+.form-control {
+  @apply w-full;
+}
+
+.input,
+.textarea,
+.select {
+  @apply text-base;
+}
+
+/* Prevent horizontal scroll on mobile */
+html,
+body {
+  overflow-x: hidden;
 }

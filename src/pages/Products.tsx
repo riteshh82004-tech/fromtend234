@@ -59,24 +59,24 @@ export function Products() {
   };
 
   return (
-    <div className="bg-base-200/50 min-h-screen">
+    <div className="bg-base-200/50 min-h-screen safe-area">
       {/* Product Banner */}
-      <div className="bg-neutral text-neutral-content py-12 md:py-16 border-b-4 border-primary">
-        <div className="mx-auto max-w-7xl px-4 text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div className="bg-neutral text-neutral-content py-8 sm:py-12 md:py-16 border-b-4 border-primary">
+        <div className="mx-auto max-w-7xl px-3 sm:px-4 text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between gap-4 sm:gap-6">
           <div>
-            <span className="text-primary font-bold uppercase tracking-wider text-sm">
+            <span className="text-primary font-bold uppercase tracking-wider text-xs sm:text-sm">
               MILAN POWER Catalogue
             </span>
-            <h1 className="text-3xl md:text-4xl font-extrabold mt-1 tracking-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mt-1 sm:mt-2 tracking-tight">
               Industrial Electrical Products
             </h1>
-            <p className="text-neutral-content/75 text-sm md:text-base mt-2 max-w-2xl">
+            <p className="text-neutral-content/75 text-xs sm:text-sm md:text-base mt-2 max-w-2xl mx-auto md:mx-0">
               Explore our dynamic catalogue of switches, MCBs, wires, cables,
               lighting, and accessories certified for peak safety and
               performance.
             </p>
           </div>
-          <div className="bg-neutral-focus border border-neutral-content/20 p-4 rounded-xl shadow-inner shrink-0 text-center">
+          <div className="bg-neutral-focus border border-neutral-content/20 p-3 sm:p-4 rounded-lg sm:rounded-xl shadow-inner shrink-0 text-center">
             <p className="text-xs text-neutral-content/60 font-semibold uppercase">
               Total Catalogued
             </p>

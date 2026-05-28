@@ -37,7 +37,7 @@ const PROGRAM = company.internshipProgram
 export const interns = [
   {
     slug: 'intrn2026-1845',
-    certificateId: 'INTRN2026-1845',
+    certificateId: 'INTRN20261845',
     status: 'Verified',
     name: 'Janvee Saini',
     fatherName: 'Hanuman Saini',
@@ -57,7 +57,7 @@ export const interns = [
   },
   {
     slug: 'intrn2026-6273',
-    certificateId: 'INTRN2026-6273',
+    certificateId: 'INTRN20266273',
     status: 'Verified',
     name: 'Tamanna',
     fatherName: 'Farooq Ali',
@@ -76,7 +76,7 @@ export const interns = [
   },
   {
     slug: 'intrn2026-8916',
-    certificateId: 'INTRN2026-8916',
+    certificateId: 'INTRN20268916',
     status: 'Verified',
     name: 'Priyanka Verma',
     fatherName: 'Mr. Kaluram Verma',

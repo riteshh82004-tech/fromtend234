@@ -8,27 +8,27 @@ export function Navbar() {
   const [careerDropdownOpen, setCareerDropdownOpen] = useState(false);
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `rounded-lg px-3 py-2 text-sm font-medium transition-all ${
+    `rounded-lg px-3 py-2.5 sm:py-2 text-sm font-medium transition-all min-h-[48px] sm:min-h-auto flex items-center ${
       isActive
         ? "bg-primary text-primary-content font-bold shadow-sm"
         : "text-base-content/80 hover:bg-base-200 hover:text-base-content"
     }`;
 
   const dropdownItemClass = ({ isActive }: { isActive: boolean }) =>
-    `rounded-lg px-4 py-2 text-sm font-medium transition-all block ${
+    `rounded-lg px-4 py-3 sm:py-2 text-sm font-medium transition-all block min-h-[48px] sm:min-h-auto flex items-center ${
       isActive
         ? "bg-primary/10 text-primary font-bold"
         : "text-base-content/85 hover:bg-base-200 hover:text-base-content"
     }`;
 
   return (
-    <header className="bg-base-100/90 sticky top-0 z-50 border-b border-base-300 backdrop-blur-md shadow-sm">
-      <div className="navbar mx-auto max-w-7xl px-4 h-16">
+    <header className="bg-base-100/90 sticky top-0 z-50 border-b border-base-300 backdrop-blur-md shadow-sm safe-area">
+      <div className="navbar mx-auto max-w-7xl px-3 sm:px-4 h-16 sm:h-auto">
         <div className="navbar-start">
           {/* Mobile Hamburg Menu Trigger */}
           <button
             type="button"
-            className="btn btn-ghost btn-square lg:hidden mr-1"
+            className="btn btn-ghost btn-square lg:hidden mr-1 min-h-[48px] w-12 h-12"
             aria-label="Open menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(true)}
@@ -52,19 +52,19 @@ export function Navbar() {
           {/* Brand Logo & Name */}
           <Link
             to="/"
-            className="flex items-center gap-2.5 px-1 py-1 hover:opacity-95 transition-opacity"
+            className="flex items-center gap-2 px-1 py-1 hover:opacity-95 transition-opacity"
           >
             <img
               src="/logo.png"
               alt={`${company.name} logo`}
-              className="h-6 w-6"
+              className="h-6 w-6 flex-shrink-0"
             />
 
             <div className="flex flex-col text-left">
-              <span className="text-sm font-black tracking-tight leading-none text-base-content">
+              <span className="text-xs sm:text-sm font-black tracking-tight leading-tight text-base-content">
                 {company.brand}
               </span>
-              <span className="text-[9px] font-bold text-base-content/50 uppercase tracking-widest mt-0.5">
+              <span className="text-[8px] sm:text-[9px] font-bold text-base-content/50 uppercase tracking-widest mt-0.5">
                 Agarwal Electropower
               </span>
             </div>
@@ -143,11 +143,11 @@ export function Navbar() {
         </div>
 
         {/* Action Button & Theme Toggle */}
-        <div className="navbar-end gap-2.5">
+        <div className="navbar-end gap-2 sm:gap-2.5">
           <ThemeToggle />
           <Link
             to="/contact"
-            className="btn btn-primary btn-sm rounded-lg font-bold shadow-md hover:shadow-lg transition-all hidden sm:inline-flex"
+            className="btn btn-primary btn-sm sm:btn-md rounded-lg font-bold shadow-md hover:shadow-lg transition-all hidden sm:inline-flex min-h-[44px]"
           >
             Get Quotes
           </Link>
@@ -165,17 +165,17 @@ export function Navbar() {
             onClick={() => setMenuOpen(false)}
           />
           {/* Drawer content */}
-          <nav className="bg-base-100 absolute left-0 top-0 bottom-0 flex h-full w-80 flex-col border-r border-base-300 p-6 shadow-2xl animate-slide-right">
-            <div className="mb-8 flex items-center justify-between">
+          <nav className="bg-base-100 absolute left-0 top-0 bottom-0 flex h-full w-72 sm:w-80 flex-col border-r border-base-300 p-4 sm:p-6 shadow-2xl animate-slide-right safe-area overflow-y-auto">
+            <div className="mb-6 sm:mb-8 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <img src="logo.png" alt="compnay" />
-                <span className="font-extrabold text-base tracking-tight">
-                  {company.name}
+                <img src="/logo.png" alt={company.name} className="h-6 w-6" />
+                <span className="font-extrabold text-sm sm:text-base tracking-tight">
+                  Menu
                 </span>
               </div>
               <button
                 type="button"
-                className="btn btn-ghost btn-sm btn-square rounded-lg"
+                className="btn btn-ghost btn-sm btn-square rounded-lg min-h-[44px] w-11 h-11"
                 aria-label="Close menu"
                 onClick={() => setMenuOpen(false)}
               >
@@ -207,7 +207,7 @@ export function Navbar() {
               </NavLink>
 
               {/* Mobile Submenu for Career */}
-              <div className="border-l-2 border-base-300 pl-4 py-1 my-1 flex flex-col gap-1">
+              <div className="border-l-2 border-base-300 pl-4 py-2 my-2 flex flex-col gap-2">
                 <span className="text-[10px] font-bold text-base-content/40 uppercase tracking-widest block px-2 mb-1">
                   Career Options
                 </span>
@@ -239,7 +239,7 @@ export function Navbar() {
             <div className="mt-auto border-t border-base-300 pt-6">
               <Link
                 to="/contact"
-                className="btn btn-primary w-full rounded-xl font-bold shadow-md"
+                className="btn btn-primary w-full rounded-xl font-bold shadow-md min-h-[48px]"
                 onClick={() => setMenuOpen(false)}
               >
                 Contact Us
