@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { company } from "../data/company";
+import { getInternById } from "../data/interns";
 import { AnimatedSection } from "../components/ui/AnimatedSection";
 import { COMPANY_SHORT_NAME } from "../utils/constants";
 
@@ -12,7 +13,12 @@ export function Verify() {
     e.preventDefault();
     const trimmed = certificateId.trim();
     if (trimmed) {
-      navigate(`/verify/${encodeURIComponent(trimmed)}`);
+      const intern = getInternById(trimmed);
+      if (intern) {
+        navigate(`/verify/${intern.slug}`);
+      } else {
+        navigate(`/verify/${encodeURIComponent(trimmed)}`);
+      }
     }
   };
 

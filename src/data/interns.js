@@ -36,8 +36,8 @@ const PROGRAM = company.internshipProgram
 /** @type {InternRecord[]} */
 export const interns = [
   {
-    slug: 'intrn2026-1845',
-    certificateId: 'INTRN20261845',
+    slug: 'intrn20261845',
+    certificateId: 'INTRN2026-1845',
     status: 'Verified',
     name: 'Janvee Saini',
     fatherName: 'Hanuman Saini',
@@ -56,8 +56,8 @@ export const interns = [
     issuedAt: '30 March 2026',
   },
   {
-    slug: 'intrn2026-6273',
-    certificateId: 'INTRN20266273',
+    slug: 'intrn20266273',
+    certificateId: 'INTRN2026-6273',
     status: 'Verified',
     name: 'Tamanna',
     fatherName: 'Farooq Ali',
@@ -75,8 +75,8 @@ export const interns = [
     issuedAt: '30 March 2026',
   },
   {
-    slug: 'intrn2026-8916',
-    certificateId: 'INTRN20268916',
+    slug: 'intrn20268916',
+    certificateId: 'INTRN2026-8916',
     status: 'Verified',
     name: 'Priyanka Verma',
     fatherName: 'Mr. Kaluram Verma',

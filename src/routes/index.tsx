@@ -1,29 +1,43 @@
-import { lazy, Suspense, type ReactNode } from 'react'
-import { createBrowserRouter, Navigate } from 'react-router-dom'
-import { MainLayout } from '../layouts/MainLayout'
-import { PageLoader } from '../components/ui/PageLoader'
-const Home = lazy(() => import('../pages/Home').then((m) => ({ default: m.Home })))
-const About = lazy(() => import('../pages/About').then((m) => ({ default: m.About })))
-const Products = lazy(() => import('../pages/Products').then((m) => ({ default: m.Products })))
+import { lazy, Suspense, type ReactNode } from "react";
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import { MainLayout } from "../layouts/MainLayout";
+import { PageLoader } from "../components/ui/PageLoader";
+const Home = lazy(() =>
+  import("../pages/Home").then((m) => ({ default: m.Home })),
+);
+const About = lazy(() =>
+  import("../pages/About").then((m) => ({ default: m.About })),
+);
+const Products = lazy(() =>
+  import("../pages/Products").then((m) => ({ default: m.Products })),
+);
 const Internship = lazy(() =>
-  import('../pages/Internship').then((m) => ({ default: m.Internship })),
-)
+  import("../pages/Internship").then((m) => ({ default: m.Internship })),
+);
 const InternshipApply = lazy(() =>
-  import('../pages/InternshipApply').then((m) => ({ default: m.InternshipApply })),
-)
-const Contact = lazy(() => import('../pages/Contact').then((m) => ({ default: m.Contact })))
-const Verify = lazy(() => import('../pages/Verify').then((m) => ({ default: m.Verify })))
+  import("../pages/InternshipApply").then((m) => ({
+    default: m.InternshipApply,
+  })),
+);
+const Contact = lazy(() =>
+  import("../pages/Contact").then((m) => ({ default: m.Contact })),
+);
+const Verify = lazy(() =>
+  import("../pages/Verify").then((m) => ({ default: m.Verify })),
+);
 const VerifyCertificate = lazy(() =>
-  import('../pages/VerifyCertificate').then((m) => ({ default: m.VerifyCertificate })),
-)
+  import("../pages/VerifyCertificate").then((m) => ({
+    default: m.VerifyCertificate,
+  })),
+);
 
 function LazyPage({ children }: { children: ReactNode }) {
-  return <Suspense fallback={<PageLoader />}>{children}</Suspense>
+  return <Suspense fallback={<PageLoader />}>{children}</Suspense>;
 }
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <MainLayout />,
     children: [
       {
@@ -35,7 +49,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: 'about',
+        path: "about",
         element: (
           <LazyPage>
             <About />
@@ -43,7 +57,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: 'products',
+        path: "products",
         element: (
           <LazyPage>
             <Products />
@@ -51,7 +65,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: 'careers',
+        path: "careers",
         element: (
           <LazyPage>
             <Internship />
@@ -59,7 +73,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: 'careers/apply',
+        path: "careers/apply",
         element: (
           <LazyPage>
             <InternshipApply />
@@ -67,15 +81,15 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: 'internship',
+        path: "internship",
         element: <Navigate to="/careers" replace />,
       },
       {
-        path: 'internship/apply',
+        path: "internship/apply",
         element: <Navigate to="/careers/apply" replace />,
       },
       {
-        path: 'contact',
+        path: "contact",
         element: (
           <LazyPage>
             <Contact />
@@ -83,7 +97,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: 'verify',
+        path: "verify",
         element: (
           <LazyPage>
             <Verify />
@@ -91,7 +105,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: 'verify/:id',
+        path: "verify/:slug",
         element: (
           <LazyPage>
             <VerifyCertificate />
@@ -100,4 +114,4 @@ export const router = createBrowserRouter([
       },
     ],
   },
-])
+]);
